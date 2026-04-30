@@ -128,6 +128,11 @@ app.post(
 
 app.use(express.static(publicDir));
 
-app.listen(baseConfig.port, () => {
-  console.log("baseConfig", baseConfig.claudeApiKey);
-});
+export default app;
+
+// Local/dev: arrancar servidor. En Vercel (serverless) se importa `app` y NO se escucha puerto.
+if (require.main === module) {
+  app.listen(baseConfig.port, () => {
+    console.log(`Prince server listening on port ${baseConfig.port}`);
+  });
+}
