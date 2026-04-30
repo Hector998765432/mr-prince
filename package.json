@@ -1,0 +1,38 @@
+{
+  "name": "mr-prince",
+  "version": "1.0.0",
+  "description": "Mobile-first Claude chat with configurable personalities",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node -r dotenv/config dist/server.js",
+    "dev": "nodemon -r dotenv/config --exec ts-node src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.91.1",
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.7",
+    "express": "^5.2.1",
+    "multer": "^2.1.1",
+    "nodemon": "^3.1.9"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@types/cors": "^2.8.19",
+    "@types/dotenv": "^8.2.3",
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.1.0",
+    "@types/node": "^22.13.1",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "eslint": "^9.20.1",
+    "globals": "^15.14.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0"
+  }
+}

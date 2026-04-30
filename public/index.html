@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#121218" />
+    <!-- Vacío = misma URL que esta página (sirve desde Express). Si abres el HTML desde otro puerto (Live Preview, etc.), pon aquí tu backend: -->
+    <meta name="api-base" content="" />
+    <title>Prince — chat</title>
+    <link rel="stylesheet" href="/chat.css" />
+  </head>
+  <body>
+    <div id="login-gate" class="login-gate" role="dialog" aria-labelledby="login-title">
+      <div id="login-checking" class="login-card login-checking">
+        <p class="login-spinner" aria-busy="true">Comprobando acceso…</p>
+      </div>
+      <div id="login-panel" class="login-card login-panel hidden">
+        <h2 id="login-title" class="login-title">Prince</h2>
+        <p class="login-hint">Contraseña de acceso</p>
+        <form id="login-form">
+          <label class="sr-only" for="login-password">Contraseña</label>
+          <input
+            id="login-password"
+            type="password"
+            name="password"
+            autocomplete="current-password"
+            required
+            maxlength="256"
+            class="login-input"
+          />
+          <p id="login-error" class="login-error hidden" role="alert"></p>
+          <button type="submit" class="btn send login-submit">Entrar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="app">
+      <header class="top-bar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <div class="brand-text">
+            <h1 class="title">Prince</h1>
+            <p class="subtitle">
+              <span id="personality-label">…</span>
+              <span class="dot">·</span>
+              <span id="model-label">…</span>
+            </p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button type="button" class="btn ghost" id="btn-clear" title="Olvidar contexto">
+            Borrar memoria
+          </button>
+          <button type="button" class="btn ghost" id="btn-logout" title="Cerrar sesión">
+            Salir
+          </button>
+        </div>
+      </header>
+
+      <main class="chat-shell" aria-live="polite">
+        <div id="messages" class="messages"></div>
+      </main>
+
+      <section id="emoji-panel" class="emoji-panel hidden" aria-hidden="true">
+        <div class="emoji-panel-head">
+          <span>Emojis</span>
+          <button type="button" class="btn icon-only" id="emoji-close" aria-label="Cerrar emojis">
+            ✕
+          </button>
+        </div>
+        <div id="emoji-grid" class="emoji-grid"></div>
+      </section>
+
+      <footer class="composer-wrap">
+        <div id="attachment-strip" class="attachment-strip hidden"></div>
+        <form id="chat-form" class="composer">
+          <input type="file" id="file-input" accept="image/*" multiple hidden />
+          <button type="button" class="btn icon-only tonal" id="btn-emoji" aria-label="Emojis">
+            🙂
+          </button>
+          <button type="button" class="btn icon-only tonal" id="btn-attach" aria-label="Adjuntar imagen">
+            🖼
+          </button>
+          <label class="sr-only" for="message-input">Mensaje</label>
+          <textarea
+            id="message-input"
+            rows="1"
+            maxlength="8000"
+            placeholder="Escribe algo…"
+            autocomplete="off"
+          ></textarea>
+          <button type="submit" class="btn send" id="btn-send" aria-label="Enviar">
+            ↑
+          </button>
+        </form>
+      </footer>
+    </div>
+
+    <script src="/chat.js" defer></script>
+  </body>
+</html>
