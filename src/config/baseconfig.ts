@@ -1,10 +1,10 @@
 import type { PromptType } from "../prompts";
 
 function parsePersonality(value: string | undefined): PromptType {
-  const v = (value ?? "femboy").toLowerCase().trim();
-  const allowed: PromptType[] = ["tsundere", "loveTsundere", "femboy", "default"];
+  const v = (value ?? "mateo").toLowerCase().trim();
+  const allowed: PromptType[] = ["tsundere", "loveTsundere", "femboy", "default", "mateo"];
   if (allowed.includes(v as PromptType)) return v as PromptType;
-  return "femboy";
+  return "mateo";
 }
 
 export const baseConfig = {

@@ -23,7 +23,6 @@ export class ClaudeService {
 
   constructor() {
     const key = baseConfig.claudeApiKey;
-    console.log("key", key);
     if (!key) {
       console.warn(
         "CLAUDE_API_KEY or ANTHROPIC_API_KEY is not set; chat requests will fail."
@@ -82,14 +81,11 @@ export class ClaudeService {
       messages,
     });
 
-    console.log("stream", stream);
-
     stream.on("text", (delta) => {
       params.onTextDelta(delta);
     });
 
     return stream.finalMessage().then((msg) => {
-      console.log("msg", msg);
       const parts: string[] = [];
       for (const block of msg.content) {
         if (block.type === "text" && "text" in block) {

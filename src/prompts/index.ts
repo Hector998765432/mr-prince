@@ -2,8 +2,9 @@ import { tsunderePrompt } from './tsundere';
 import { loveTsunderePrompt } from './loveTsundere';
 import { systemPrompt } from './basePrompt';
 import { femboyPrompt } from './femboyPrompt';
+import { mateoPrompt } from './mateo';
 
-export type PromptType = 'tsundere' | 'loveTsundere' | 'femboy' | 'default';
+export type PromptType = 'tsundere' | 'loveTsundere' | 'femboy' | 'mateo' | 'default';
 
 export const getPrompt = (type: PromptType): string => {
   switch (type) {
@@ -13,6 +14,8 @@ export const getPrompt = (type: PromptType): string => {
       return loveTsunderePrompt;
     case 'femboy':
       return femboyPrompt;
+    case 'mateo':
+      return mateoPrompt;
     case 'default':
     default:
       return systemPrompt;
